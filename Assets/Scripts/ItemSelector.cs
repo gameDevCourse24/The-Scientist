@@ -12,6 +12,7 @@ public class ItemSelector : MonoBehaviour
     public void Start() {
         if(itemSelector == null) {
             itemSelector = this;
+            Debug.Log("new selector");
         }
         if(itemPrefab != null) itemSelector.selectedItem(itemPrefab);
     }
@@ -19,6 +20,7 @@ public class ItemSelector : MonoBehaviour
     {
         if(itemPrefab.tag == "Products") {
             products.AddLast(itemPrefab);
+            Debug.Log("selected Product: "+ itemPrefab.name);
         }
         else {
             tools.AddLast(itemPrefab);
@@ -31,5 +33,9 @@ public class ItemSelector : MonoBehaviour
 
     public LinkedList<GameObject> getProducts() {
         return itemSelector.products;
+    }
+
+    public void cleanProducts(){
+        itemSelector.products.Clear();
     }
 }

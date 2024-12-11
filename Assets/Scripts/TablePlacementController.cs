@@ -21,9 +21,11 @@ public class TablePlacementController : MonoBehaviour
             if(outcome.MixProducts(itemSelector.getProducts()) != "Unknown Reaction")
             {
                 if(showOutcome != null) {
+                    Debug.Log("show: " + outcome.MixProducts(itemSelector.getProducts()));
                     showOutcome.SetActive(true);
                 }
             }
         }
+        itemSelector.cleanProducts();
     }
 }
